@@ -1,9 +1,43 @@
+.user_dashbord{
+    margin: 6px;
+    padding: 18px;
+    padding-bottom: 50px;
+    border-bottom: solid;
+}
+.user_dashbord a{
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#upgrade_account{
+    background-color: #7cb342;
+    translate: all 0.2s ease-in;
+}
+#upgrade_account:hover{
+    background-color: #558b2f;
+}
+
+#delete_account{
+    background-color: #f44336;
+    translate: all 0.2s ease-in;
+}
+#delete_account:hover{
+    background-color: #b71c1c;
+}
 .card{
-    margin-left: auto;
-    margin-right: auto;
-    width: -webkit-fill-available;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: inherit;
     padding-top: 5%;
     padding-bottom: 5%;
+    transition: all 0.2s ease-in;
+}
+
+.card:hover{
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .card-body input{

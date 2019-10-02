@@ -89,7 +89,7 @@ def confirm_email(token):
 def dashbord(user_name):
     #function to show dashbord where user can interact with the database...
     if session.get(user_name):
-        valid_till = handler.get_valid_till(user_name)
+        valid_till = handler.get_valid_till(user_name)[0]
         data = handler.get_data(user_name)
         return render_template('dashbord.html' , valid_till = valid_till , user_name = user_name ,  data = data)
     return redirect(url_for('login'))

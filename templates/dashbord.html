@@ -7,12 +7,14 @@
     </head>
 
     <body>
-        <h2>Welcome {{ user_name }}</h2>
-        <a href="{{ user_name }}/add_new_password"  class="btn btn-primary">add new password</a>
-        <a href="logout/{{ user_name }}"  class="btn btn-primary">logout</a>
-        <a href="{{ user_name }}/delete_account"  class="btn btn-primary">Remove account</a>
-        <a href="/subscribe_plan/{{ user_name }}"  class="btn btn-primary">Upgrade</a>
-        
+        <div class="user_dashbord">
+            <h2>Welcome {{ user_name }}</h2>
+            <p>Your account subscription expires on {{ valid_till }}</p>
+            <a href="{{ user_name }}/delete_account" id="delete_account" class="btn btn-primary">Remove account</a>
+            <a href="/subscribe_plan/{{ user_name }}" id="upgrade_account" class="btn btn-primary">Upgrade</a>
+            <a href="logout/{{ user_name }}"  class="btn btn-primary">logout</a>
+            <a href="{{ user_name }}/add_new_password"  class="btn btn-primary">add new password</a>
+        </div>
         {% for d in data %}
             <div class="card">
                 <h5 class="card-header">{{ d[0] }}</h5>
