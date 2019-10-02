@@ -5,6 +5,9 @@ import sqlite3
 from flask_mail import Mail , Message
 from itsdangerous import URLSafeTimedSerializer
 
+import numpy as np
+import matplotlib.pyplot as plt
+import os
 
 app = Flask(__name__)
 #app.permanent_session_lifetime = False
@@ -33,11 +36,34 @@ def admin_login():
         password = request.form.get('pswd')
         auth = handler.authenticate_admin(user_name , password)
         if auth:
-            #session[user_name] = True
-            return render_template('admin_dashbord.html' , analytics = handler.get_analytics()[-1])
+            session['admin'] = True
+            return redirect(url_for('admin_dashbord'))
         return 'login failed'
     return render_template('form.html' , form_type = 'Log In')
 
+@app.route('/admin_dashbord')
+def admin_dashbord():
+    if session.get('admin') == True:
+        #generate analytics chart
+        analytics = handler.get_analytics()
+        data = [np.array([0,0,0])]
+        for i in analytics:
+            data.append(np.array(i[1:]))
+        #generating dummy data
+        for i in range(5):
+            data.append( np.array([np.random.randint(10) , np.random.randint(10) , np.random.randint(10)]))
+        data = np.array(data)
+        
+        index = np.arange(data.shape[0])
+        plt.plot(index , data[: , 0] , c = 'g')
+        plt.plot(index , data[: , 1] , c = 'b')
+        plt.plot(index , data[: , 2] , c = 'r')
+        path = os.path.join( os.getcwd() , 'static/graph.png' )
+        plt.savefig(path)
+        plt.close()
+
+        return render_template('admin_dashbord.html' , analytics = analytics[-1])
+    return redirect(url_for('login_admin'))
 
 #functions for user to use the app
 
@@ -102,7 +128,7 @@ def add_password(user_name):
             password = request.form.get('pswd')
             handler.add_password(user_name , website , password)
             return redirect(url_for('dashbord' , user_name = user_name))
-        return render_template('add_password.html')   
+        return render_template('add_password.html' , action_type = "add_new")   
     return redirect(url_for('login'))
 
 @app.route('/dashbord/<user_name>/remove/<website>')
