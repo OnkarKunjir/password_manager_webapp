@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Select Plan</title>
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="card">
+            <h5 class="card-header">10 Days Free Trail</h5>
+            <div class="card-body">
+                <p>get all the features of password manager for 10 days free. you can sign out any time</p>
+                <a href="/payment/{{ user_name }}/free_trail" id = "free_trail" class="btn btn-primary">Proceed</a>    
+            </div>
+        </div>
+        {% for plan in plans %}
+            <div class="card">
+                <h5 class="card-header">{{ plan[0] }}</h5>
+                <div class="card-body">
+                     <p>{{ plan[1] }}</p>
+                     <p>{{ plan[2] }}</p>
+                     <a href="/payment/{{ user_name }}/{{ plan[0] }}" id = "paid_plan_{{ plan[0] }}" class="btn btn-primary">Proceed</a>    
+                </div>
+            </div>
+        {% endfor %}
+    </body>
+</html>

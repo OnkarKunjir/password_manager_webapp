@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/login_custom.css">
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <title>{{ form_type }}</title>
+    </head>
+
+    <body>
+      
+        <form id="login_form" method="POST">
+            <h3>{{ form_type }}</h3>
+            {% if form_type == "Sign Up" %}
+              <div class="form-group">
+                <label for="Email">Email address</label>
+                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email" name="mail">
+              </div>
+            {% endif %}
+            <div class="form-group">
+              <label for="u_name">User name</label>
+              <input type="text" class="form-control" id="u_name" aria-describedby="emailHelp" placeholder="User name" name="user_name">
+            </div>
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="pswd">
+            </div>
+            {% if form_type == "Log In" %}
+              <br>
+              <a href="/sign_up">Don't have account Sign up here for free</a>
+              <br>
+            {% endif %}
+            {% if form_type == "Sign Up"%}
+              <br>
+              <a href="/login">Already have an account login in here</a>
+              <br>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">{{ form_type }}</button>
+          </form>
+    </body>
+</html> 
+

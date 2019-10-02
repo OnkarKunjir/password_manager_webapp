@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Manage Plans</title>
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/custom_dashbord.css">
+    </head>
+
+    <body>
+        {% for plan in plans %}
+            <form method="POST">
+                <div class="card">
+                    <p class="card-header">{{ plan[0] }}</p>
+                    <div class="card-body">
+                            <p>{{ plan[1] }}</p>
+                            <p>{{ plan[2] }}</p>
+                            <ul>
+                                <li><a href="/update_plan/{{ plan[0] }}" id = "update_{{ plan[0] }}" class="btn btn-primary">Update</a></li>
+                                <li><a href="/remove_plan/{{ plan[0] }}" id = "update_{{ plan[0] }}" class="btn btn-primary">Remove</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </form>
+        {% endfor %}
+    </body>
+</html>
