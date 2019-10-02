@@ -10,6 +10,30 @@
     margin-right: 5px;
 }
 
+.analytics{
+    width: max-content;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#graph_signup{
+    background-color: green;
+}
+
+#graph_upgrade{
+    background-color: blue;
+}
+
+#graph_left{
+    background-color: red;
+}
+
+table tr td{
+    padding: 5px;
+}
+
 #upgrade_account{
     background-color: #7cb342;
     translate: all 0.2s ease-in;

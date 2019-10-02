@@ -3,15 +3,27 @@
     <head>
         <title>Admin Dashbord</title>
         <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/custom_dashbord.css">
     </head>
 
     <head>
-        <a href="admin/manage_plans"  class="btn btn-primary">add new plan</a>
-        <h1>Analytics</h1>
-        <img src="/static/graph.png" alt="analytics_graph">
-        <p>number of new accounts signed up - {{ analytics[1] }}</p>
-        <p>number of accounts upgraded      - {{ analytics[2] }}</p>
-        <p>number of left                   - {{ analytics[3] }}</p>
+        <div class="analytics">
+            <img src="/static/graph.png" id="graph" alt="analytics_graph">
+            <table>
+                <tr>
+                    <td>number of users signed up</td>
+                    <td><input type="button" value="" class="btn btn-primary" id="graph_signup"></td>
+                </tr>
+                <tr>
+                    <td>number of users Upgraded</td>
+                    <td><input type="button" value="" class="btn btn-primary" id="graph_upgrade"></td>
+                </tr>
+                <tr>
+                    <td>number of users left</td>
+                    <td><input type="button" value="" class="btn btn-primary" id="graph_left"></td>
+                </tr>
+            </table>
+        </div>
     </head>
 </html>
 

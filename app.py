@@ -17,8 +17,8 @@ mail_settings = {
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
     "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": 'onkarkunjir88@gmail.com',
-    "MAIL_PASSWORD": 'Just type OK @2000'
+    "MAIL_USERNAME": '#',
+    "MAIL_PASSWORD": '#'
 }
 app.config.update(mail_settings)
 mail = Mail(app)
@@ -58,6 +58,8 @@ def admin_dashbord():
         plt.plot(index , data[: , 0] , c = 'g')
         plt.plot(index , data[: , 1] , c = 'b')
         plt.plot(index , data[: , 2] , c = 'r')
+        plt.xlabel("months")
+        plt.ylabel("number of users")
         path = os.path.join( os.getcwd() , 'static/graph.png' )
         plt.savefig(path)
         plt.close()
